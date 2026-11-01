@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: service
+  datasource:
+    url: jdbc:h2:file:${APP_DATA_DIR:./data}/app
+    username: ${DB_USERNAME:app}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: false
+
+server:
+  address: ${SERVER_ADDRESS:0.0.0.0}
+  port: ${SERVER_PORT:3000}
+  error:
+    include-message: never

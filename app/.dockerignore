@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+**/build
+**/.gradle
+**/.kotlin
+**/data
+.env
+.env.*
+**/*.mv.db
+**/*.trace.db
+**/*.log
+.DS_Store

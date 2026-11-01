@@ -1,0 +1,17 @@
+.DS_Store
+.cache/
+.gradle/
+.kotlin/
+node_modules/
+dist/
+build/
+coverage/
+data/
+.env
+.env.*
+!.env.example
+*.log
+*.tsbuildinfo
+*.mv.db
+*.trace.db
+*.lock.db
