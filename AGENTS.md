@@ -6,6 +6,7 @@
 
 - 요구사항 정리·변경: [.agents/skills/define-requirements/SKILL.md](.agents/skills/define-requirements/SKILL.md)
 - 기능 구현·수정: [.agents/skills/implement-usecase/SKILL.md](.agents/skills/implement-usecase/SKILL.md)
+- 복잡한 업무 규칙·계산·탐색의 설계와 비교: [.agents/skills/design-business-logic/SKILL.md](.agents/skills/design-business-logic/SKILL.md). 단순 조회·저장에는 추가로 읽지 않는다.
 - 전체 흐름·품질·패키징 확인: [.agents/skills/verify-delivery/SKILL.md](.agents/skills/verify-delivery/SKILL.md)
 - 코드 구조가 필요할 때: [docs/STACK.md](docs/STACK.md)
 - 실행·DB 조회가 필요할 때: [app/README.md](app/README.md)
@@ -20,6 +21,8 @@
 - 기준 문서는 [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md)다. 기능 요구사항(F), 공통 제약(C), 유즈케이스(UC), 인수 기준(AC)을 연결한다.
 - 공통 제약은 한곳에 정의하고 여러 기능에서 ID로 참조한다. 제약 때문에 요구되지 않은 기능을 새로 만들지 않는다.
 - 작은 사용자 흐름 하나에 필요한 화면·API·저장·제약을 함께 구현하고 검증한다. 복잡한 알고리즘을 뒤로 미뤄도 데이터·상태·필수 제약에 영향을 주는 결정은 먼저 확인한다.
+- 어려운 업무 판단은 작은 입력의 기대 결과로 이해한 뒤 풀이와 검증 계획을 정한다. 최적화가 필요하면 조건을 만족하는 기준 구현부터 서비스에 연결하고 실제 결과를 비교한다. 모든 기능에 초기해·반복 개선 구조를 적용하지 않는다.
+- 임시 연결과 실제 업무 동작을 구분한다. 예시 데이터·임시 응답만 연결된 UC를 완료로 표시하지 않고, 미구현 판단은 명시적인 미지원 상태로 두어 확정·저장 경로에서 성공으로 처리하지 않는다.
 - 현재 UC의 완료와 상위 기능의 완료를 구분한다. 필수 UC·공통 제약·실제 연결에서 확인하지 않은 부분을 명시한다.
 - AC에는 현재 기능과 관련된 기술적 조건도 포함한다. 동시성은 경합 조건과 허용 결과·최종 저장 상태를, 타임아웃은 발생 지점·제한 시간·응답 및 저장 상태를 정한다. 모든 기능에 같은 기술 조건을 강제하거나 근거 없는 임계값을 확정하지 않는다.
 - 문서는 ASCII 흐름도와 짧은 표를 사용한다. 전체 흐름뿐 아니라 각 기능 상세의 앞부분에도 사용자 행동·관련 UC·성공 결과·중요한 실패 분기를 짧은 ASCII 그림으로 표시한다. 같은 그림을 UC마다 반복하지 않고 필요한 상세만 추가한다. 흐름이 바뀌면 그림도 갱신한다. 상세 로그·코드는 링크로 연결하고 중요한 선택만 [docs/DECISIONS.md](docs/DECISIONS.md)에 기록한다.
